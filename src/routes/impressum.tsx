@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import capturedCSS from "../styles/pages/impressum.css?raw";
 
 export const Route = createFileRoute("/impressum")({
-  head: () => ({ meta: [{ title: "Impressum | HSV Visitenkarten" }] }),
+  head: () => ({ meta: [{ title: "Impressum | Lasse Böttcher · HSV" }, { name: "description", content: "Impressum der digitalen Visitenkarte von Lasse Böttcher." }, { property: "og:title", content: "Impressum | Lasse Böttcher · HSV" }, { property: "og:description", content: "Impressum der digitalen Visitenkarte von Lasse Böttcher." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }),
   staticData: { importedDocument: { html: { "lang": "de" }, body: { "data-react-root": "true" } } },
   component: Index,
 });

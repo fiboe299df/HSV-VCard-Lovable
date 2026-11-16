@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import capturedCSS from "../styles/pages/datenschutz.css?raw";
 
 export const Route = createFileRoute("/datenschutz")({
-  head: () => ({ meta: [{ title: "Datenschutz | HSV Visitenkarten" }] }),
+  head: () => ({ meta: [{ title: "Datenschutz | Lasse Böttcher · HSV" }, { name: "description", content: "Datenschutzerklärung der digitalen Visitenkarte von Lasse Böttcher." }, { property: "og:title", content: "Datenschutz | Lasse Böttcher · HSV" }, { property: "og:description", content: "Datenschutzerklärung der digitalen Visitenkarte von Lasse Böttcher." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }),
   staticData: { importedDocument: { html: { "lang": "de" }, body: { "data-react-root": "true" } } },
   component: Index,
 });
