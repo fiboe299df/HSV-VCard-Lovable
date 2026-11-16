@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode, type Ref } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -429,7 +429,7 @@ function CopyBtn({ text, label }: { text: string; label: string }) {
   );
 }
 
-function ContactRow({ icon, label, value, href, copy, onClick }: { icon: ReactNode; label: string; value: string; href?: string; copy: string; onClick?: never }) {
+function ContactRow({ icon, label, value, href, copy }: { icon: ReactNode; label: string; value: string; href?: string; copy: string }) {
   return (
     <div className="tile flex items-center gap-2 p-2 pr-2.5">
       <a href={href} className="flex min-h-[52px] min-w-0 flex-1 items-center gap-3 rounded-xl px-1.5 transition hover:bg-accent">
@@ -738,7 +738,7 @@ function MatchCard({ m }: { m: Match }) {
   );
 }
 
-function TableBody({ rows, hsvRef }: { rows: TableRow[]; hsvRef?: React.Ref<HTMLTableRowElement> }) {
+function TableBody({ rows, hsvRef }: { rows: TableRow[]; hsvRef?: Ref<HTMLTableRowElement> }) {
   return (
     <tbody>
       {rows.map((r) => {
