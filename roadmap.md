@@ -1,4 +1,12 @@
 # Roadmap
 - [x] Phase 1: Import site (index, impressum, datenschutz), remove Base44 badge
 - [ ] Phase 2: Public card improvements (nav, contact cards, CV modal, timeline, flags, live table, scroll button, OG)
+  - [ ] Slimmer info bar
+  - [ ] Burger menu: only the most important items, compact
+  - [ ] Back button in Werdegang section
+  - [ ] Wallet + vCard save fixed in bottom bar (all screen sizes)
+  - [ ] Site-wide back/forward (history) button
+  - [ ] Three biggest successes as icon tiles under "Über mich"
+  - [ ] Dark mode toggle + language dropdown menu
+  - [ ] Language section with progress bars
 - [ ] Phase 3: Private area + admin with Lovable Cloud (TOTP MFA, roles, private documents)

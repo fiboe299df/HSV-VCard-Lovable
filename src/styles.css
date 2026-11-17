@@ -307,3 +307,62 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
 }
+
+/* ---------- HSV card: header pill, slim info bar, bottom bar, successes, levels ---------- */
+@layer components {
+  .glass-pill {
+    display: flex; align-items: center; gap: 0.15rem; padding: 0.2rem; border-radius: 9999px;
+    background: hsl(0 0% 100% / 0.1); border: 1px solid hsl(0 0% 100% / 0.22);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .glass-pill-btn {
+    display: inline-flex; align-items: center; justify-content: center; height: 2rem; border-radius: 9999px;
+    color: hsl(var(--glass-foreground)); transition: background 0.2s;
+  }
+  .glass-pill-btn:hover, .glass-pill-btn[data-state="open"] { background: hsl(0 0% 100% / 0.2); }
+  .glass-chip--sm { padding: 0.35rem 0.7rem; font-size: 12.5px; gap: 0.35rem; border-color: transparent; background: transparent; }
+  .glass-chip--sm:hover { background: hsl(0 0% 100% / 0.14); }
+
+  .bottom-item {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.15rem;
+    min-height: 2.9rem; border-radius: 0.8rem; font-size: 10.5px; font-weight: 700; line-height: 1.1; text-align: center;
+    color: hsl(var(--glass-foreground)); background: hsl(0 0% 100% / 0.08); transition: background 0.2s;
+  }
+  .bottom-item:hover, .bottom-item[data-state="open"] { background: hsl(0 0% 100% / 0.2); }
+  .bottom-item--primary { background: hsl(0 0% 100%); color: hsl(var(--hsv-blue)); }
+  .bottom-item--primary:hover { background: hsl(0 0% 100% / 0.88); }
+
+  .menu-item {
+    display: flex; align-items: center; gap: 0.6rem; width: 100%; min-height: 2.4rem; padding: 0 0.7rem;
+    border-radius: 0.6rem; font-size: 13.5px; font-weight: 600; text-align: left; transition: background 0.2s;
+  }
+  .menu-item:hover { background: hsl(var(--accent)); }
+
+  .success-tile {
+    border-radius: 1.1rem; padding: 1rem; border: 1px solid hsl(var(--border));
+    background: linear-gradient(160deg, hsl(var(--secondary)), hsl(var(--card)));
+    box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.4);
+  }
+
+  .level-seg { height: 0.5rem; border-radius: 9999px; background: hsl(var(--secondary)); border: 1px solid hsl(var(--border)); }
+  .level-seg[data-on="true"] {
+    border-color: transparent;
+    background: linear-gradient(90deg, hsl(var(--hsv-blue)), hsl(var(--primary-glow)));
+    animation: level-fill 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    transform-origin: left;
+  }
+
+  .live-dot {
+    display: inline-flex; align-items: center; gap: 0.3rem; border-radius: 9999px; padding: 0.1rem 0.5rem;
+    font-size: 10.5px; font-weight: 800; text-transform: uppercase; color: hsl(var(--success)); background: hsl(var(--success) / 0.12);
+  }
+  .live-dot::before { content: ""; width: 0.4rem; height: 0.4rem; border-radius: 9999px; background: currentColor; animation: live-pulse 1.6s ease-in-out infinite; }
+
+  .fab:disabled { opacity: 0.35; cursor: default; transform: none; }
+}
+
+@keyframes level-fill { from { transform: scaleX(0); opacity: 0; } to { transform: scaleX(1); opacity: 1; } }
+@keyframes live-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@media (prefers-reduced-motion: reduce) {
+  .level-seg[data-on="true"], .live-dot::before { animation: none; }
+}
