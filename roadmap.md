@@ -9,4 +9,5 @@
   - [ ] Three biggest successes as icon tiles under "Über mich"
   - [ ] Dark mode toggle + language dropdown menu
   - [ ] Language section with progress bars
+  - [ ] Info bar: higher contrast, readable
 - [ ] Phase 3: Private area + admin with Lovable Cloud (TOTP MFA, roles, private documents)

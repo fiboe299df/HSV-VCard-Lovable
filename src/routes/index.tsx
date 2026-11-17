@@ -113,7 +113,7 @@ const LANGUAGES = [
 ];
 const CEFR = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
-const SUCCESS_ICONS = [Trophy, GraduationCap, Globe2];
+const SUCCESS_ICONS = [Trophy, GraduationCap, Globe2] as const;
 
 const VCARD = [
   "BEGIN:VCARD", "VERSION:3.0", "N:Böttcher;Lasse;;;", "FN:Lasse Böttcher", "ORG:HSV Fußball AG",
@@ -264,7 +264,7 @@ function Index() {
                   <h3 className="mt-5 text-[12px] font-extrabold uppercase tracking-[0.12em] text-primary">{t.successTitle}</h3>
                   <ul className="mt-2.5 grid gap-2.5 sm:grid-cols-3">
                     {t.successes.map((s, i) => {
-                      const Icon = SUCCESS_ICONS[i];
+                      const Icon = SUCCESS_ICONS[i % SUCCESS_ICONS.length] ?? Trophy;
                       return (
                         <li key={s.t} className="success-tile">
                           <span className="icon-badge"><Icon className="h-5 w-5" /></span>
@@ -304,7 +304,7 @@ function Index() {
 
 function Header({ dark, onToggleTheme, lang, onLang }: { dark: boolean; onToggleTheme: () => void; lang: Lang; onLang: (l: Lang) => void }) {
   const t = useT();
-  const current = LANGS.find((l) => l.code === lang) ?? LANGS[0];
+  const current = LANGS.find((l) => l.code === lang) ?? { code: "de" as Lang, label: "Deutsch", flag: "de" };
   return (
     <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 py-3.5">
       <a className="flex min-w-0 items-center gap-3" href="https://www.hsv.de/" rel="noopener noreferrer" target="_blank" aria-label={t.hsvSite}>
@@ -679,7 +679,7 @@ function LanguagesSection() {
       <h2 className="flex items-center gap-2 text-[17px] font-extrabold tracking-tight"><Languages className="h-4 w-4 text-primary" /> {t.languagesTitle}</h2>
       <ul className="mt-4 grid gap-5">
         {LANGUAGES.map((l) => {
-          const [name, levelText] = t.languages[l.code];
+          const [name, levelText] = t.languages[l.code] ?? [l.code, ""];
           const pct = Math.round((l.level / CEFR.length) * 100);
           return (
             <li key={l.code}>
