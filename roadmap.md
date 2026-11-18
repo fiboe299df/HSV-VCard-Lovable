@@ -1,13 +1,11 @@
 # Roadmap
 - [x] Phase 1: Import site (index, impressum, datenschutz), remove Base44 badge
-- [ ] Phase 2: Public card improvements (nav, contact cards, CV modal, timeline, flags, live table, scroll button, OG)
-  - [ ] Slimmer info bar
-  - [ ] Burger menu: only the most important items, compact
-  - [ ] Back button in Werdegang section
-  - [ ] Wallet + vCard save fixed in bottom bar (all screen sizes)
-  - [ ] Site-wide back/forward (history) button
-  - [ ] Three biggest successes as icon tiles under "Über mich"
-  - [ ] Dark mode toggle + language dropdown menu
-  - [ ] Language section with progress bars
-  - [ ] Info bar: higher contrast, readable
-- [ ] Phase 3: Private area + admin with Lovable Cloud (TOTP MFA, roles, private documents)
+- [x] Phase 2: Public card improvements (nav, contact cards, timeline, flags, live table, scroll buttons, dark mode, languages, successes)
+- [ ] Phase 2b: All pop-up windows centered (incl. menu + address chooser), readable top bar, CV opens protected PDF when signed in
+- [ ] Phase 3: Private area + admin
+  - [ ] Database: members (approval), private contact, settings, recovery codes, document visibility, grants
+  - [ ] Only fiboe02@outlook.de admin (other admins demoted when it signs up)
+  - [ ] Login (eye icon, magic link, register, forgot/reset password)
+  - [ ] TOTP setup (QR, otpauth link, key copy), verify, recovery codes, remember device 30 days, inactivity sign-out
+  - [ ] Private dashboard: private/work contacts, stadium map, documents viewer
+  - [ ] Admin: documents drag & drop + visible switch, members approve/block, MFA reset, invite, MFA-required switch, view toggle
