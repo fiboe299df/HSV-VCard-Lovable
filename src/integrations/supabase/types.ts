@@ -32,6 +32,24 @@ export type Database = {
         }
         Relationships: []
       }
+      app_settings: {
+        Row: {
+          id: number
+          mfa_required_for_members: boolean
+          updated_at: string
+        }
+        Insert: {
+          id?: number
+          mfa_required_for_members?: boolean
+          updated_at?: string
+        }
+        Update: {
+          id?: number
+          mfa_required_for_members?: boolean
+          updated_at?: string
+        }
+        Relationships: []
+      }
       audit_events: {
         Row: {
           action: string
@@ -64,28 +82,130 @@ export type Database = {
           bucket_id: string
           category: string | null
           created_at: string
+          file_name: string | null
           id: string
+          is_visible: boolean
+          mime_type: string | null
           object_path: string
           owner_user_id: string | null
+          size_bytes: number | null
           title: string
+          updated_at: string
         }
         Insert: {
           bucket_id?: string
           category?: string | null
           created_at?: string
+          file_name?: string | null
           id?: string
+          is_visible?: boolean
+          mime_type?: string | null
           object_path: string
           owner_user_id?: string | null
+          size_bytes?: number | null
           title: string
+          updated_at?: string
         }
         Update: {
           bucket_id?: string
           category?: string | null
           created_at?: string
+          file_name?: string | null
           id?: string
+          is_visible?: boolean
+          mime_type?: string | null
           object_path?: string
           owner_user_id?: string | null
+          size_bytes?: number | null
           title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      members: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          email: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          email: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          email?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      mfa_recovery_codes: {
+        Row: {
+          code_hash: string
+          created_at: string
+          id: string
+          used_at: string | null
+          user_id: string
+        }
+        Insert: {
+          code_hash: string
+          created_at?: string
+          id?: string
+          used_at?: string | null
+          user_id: string
+        }
+        Update: {
+          code_hash?: string
+          created_at?: string
+          id?: string
+          used_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      private_contact: {
+        Row: {
+          id: number
+          note: string | null
+          private_address: string | null
+          private_email: string | null
+          private_phone: string | null
+          updated_at: string
+          work_address: string | null
+          work_email: string | null
+          work_phone: string | null
+        }
+        Insert: {
+          id?: number
+          note?: string | null
+          private_address?: string | null
+          private_email?: string | null
+          private_phone?: string | null
+          updated_at?: string
+          work_address?: string | null
+          work_email?: string | null
+          work_phone?: string | null
+        }
+        Update: {
+          id?: number
+          note?: string | null
+          private_address?: string | null
+          private_email?: string | null
+          private_phone?: string | null
+          updated_at?: string
+          work_address?: string | null
+          work_email?: string | null
+          work_phone?: string | null
         }
         Relationships: []
       }
@@ -124,7 +244,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      can_view_private: { Args: never; Returns: boolean }
+      get_my_access: { Args: never; Returns: Json }
       is_hsv_admin: { Args: never; Returns: boolean }
+      mfa_ok: { Args: never; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
