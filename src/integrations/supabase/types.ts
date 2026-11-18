@@ -244,10 +244,8 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      can_view_private: { Args: never; Returns: boolean }
       get_my_access: { Args: never; Returns: Json }
       is_hsv_admin: { Args: never; Returns: boolean }
-      mfa_ok: { Args: never; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
